@@ -68,7 +68,10 @@ public class Fragment_NearBy extends Fragment {
 //        todo
 //   if -> lat long-> ll
 //        else -> near=mumbai
-        final String url ="https://api.foursquare.com/v2/venues/search?ll=19.1107643,72.8456398&categoryId=%s&client_id=LBG00343EKHRRU4OC3TD45M1PBTYL11DP4OUML1PXX5OP3YK&client_secret=IAIU0OTNIXBAKBUVF2LWZ1NOD5QIK5QBUVGHDBAKYMH1MHJS&v=20170319";
+        String city = "mumbai";
+        String near = "near="+city+",+IN";
+        String latlong = "ll=19.1107643,72.8456398";
+        final String url ="https://api.foursquare.com/v2/venues/search?%s&radius=1500&categoryId=%s&client_id=LBG00343EKHRRU4OC3TD45M1PBTYL11DP4OUML1PXX5OP3YK&client_secret=IAIU0OTNIXBAKBUVF2LWZ1NOD5QIK5QBUVGHDBAKYMH1MHJS&v=20170319";
         Log.i(TAG, "loadDataBaseOnType: "+type);
         String categoryID = "";
         switch (type){
@@ -88,7 +91,7 @@ public class Fragment_NearBy extends Fragment {
                 categoryID = "4d4b7105d754a06378d81259";
                 break;
         }
-        JacksonRequest jacksonRequest = new JacksonRequest(Request.Method.GET, String.format(url, categoryID), null, NearByDataRoot.class, new com.android.volley.Response.Listener() {
+        JacksonRequest jacksonRequest = new JacksonRequest(Request.Method.GET, String.format(url,near, categoryID), null, NearByDataRoot.class, new com.android.volley.Response.Listener() {
             @Override
             public void onResponse(Object o) {
 
