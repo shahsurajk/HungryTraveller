@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 R.array.location, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        bEatry.setOnClickListener(new View.OnClickListener() {
+      /*  bEatry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Eatry.class);
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 startActivity(intent);
             }
         });
-    }
+    */}
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

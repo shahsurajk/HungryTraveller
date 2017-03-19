@@ -5,4 +5,5 @@
         <item>Virar</item>
         <item>Borivli</item>
     </string-array>
+    <string name="one">Hi</string>
 </resources>
