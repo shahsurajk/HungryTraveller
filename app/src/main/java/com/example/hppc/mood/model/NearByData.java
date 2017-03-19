@@ -6,15 +6,12 @@ package com.example.hppc.mood.model;
 
 public class NearByData
 {
-    private String[] venueChains;
 
     private Location location;
 
     private Stats stats;
 
     private String allowMenuUrlEdit;
-
-    private String contact;
 
     private String id;
 
@@ -26,13 +23,6 @@ public class NearByData
 
     private String hasPerk;
 
-    public String[] getVenueChains() {
-        return venueChains;
-    }
-
-    public void setVenueChains(String[] venueChains) {
-        this.venueChains = venueChains;
-    }
 
     public Location getLocation() {
         return location;
@@ -58,13 +48,6 @@ public class NearByData
         this.allowMenuUrlEdit = allowMenuUrlEdit;
     }
 
-    public String getContact() {
-        return contact;
-    }
-
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
 
     public String getId() {
         return id;

@@ -9,9 +9,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
-    public static final String BASE_URL = "https://api.foursquare.com/v2/venues";
+    public static final String BASE_URL = "https://api.foursquare.com/v2/venues/";
     private static Retrofit retrofit = null;
-
 
     public static Retrofit getClient() {
         if (retrofit==null) {

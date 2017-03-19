@@ -6,15 +6,15 @@ import java.util.List;
  * Created by madscientist on 19/3/17.
  */
 
-class Response {
+public class Response {
 
-   private List<NearByData>nearByDataList;
+   private List<NearByData> venues;
 
-    public List<NearByData> getNearByDataList() {
-        return nearByDataList;
+    public List<NearByData> getVenues() {
+        return venues;
     }
 
-    public void setNearByDataList(List<NearByData> nearByDataList) {
-        this.nearByDataList = nearByDataList;
+    public void setVenues(List<NearByData> venues) {
+        this.venues = venues;
     }
 }

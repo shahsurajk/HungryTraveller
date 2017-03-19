@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:padding="8dp"
-    android:layout_height="match_parent"
+    android:id="@+id/rootLayout"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/rnd_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -24,7 +25,7 @@
     android:layout_height="wrap_content">
     <TextView
         android:id="@+id/location"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -33,7 +34,10 @@
         tools:layout_editor_absoluteY="59dp" />
 
     <TextView
-        android:id="@+id/dis"
+        android:id="@+id/distnace"
+        android:textSize="12sp"
+        android:textColor="#9E9E9E"
+        android:layout_marginLeft="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -41,22 +45,29 @@
         tools:layout_editor_absoluteX="290dp" />
 
 </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_marginTop="8dp"
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="25dp"
-        android:layout_height="26dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         app:srcCompat="@android:color/darker_gray"
         tools:layout_editor_absoluteY="99dp"
-        android:layout_marginLeft="23dp"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <TextView
-        android:id="@+id/checkin"
-        android:layout_width="310dp"
-        android:layout_height="24dp"
+        android:id="@+id/checking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="TextView"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="8dp"
         tools:layout_editor_absoluteX="51dp"
         tools:layout_editor_absoluteY="99dp" />
 
+</LinearLayout>
 </LinearLayout>
