@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">mood</string>
+    <string name="app_name">HungryTraveller</string>
     <string-array name="location">Location
         <item>Vasai</item>
         <item>Virar</item>
