@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -41,12 +42,14 @@ public class NearByAdapter extends RecyclerView.Adapter<NearByAdapter.ViewHolder
 
         final NearByData nearByData = nearByDataList.get(position);
         holder.title.setText(nearByData.getName());
-        holder.location.setText(nearByData.getLocation().getAddress()+", "+nearByData.getLocation().getCrossStreet());
+        holder.location.setText(nearByData.getLocation().getAddress() + ", " + nearByData.getLocation().getCrossStreet());
         if (nearByData.getStats()!=null && !TextUtils.isEmpty(nearByData.getStats().getUsersCount()))
         {
-            holder.peopleCount.setText(nearByData.getStats().getUsersCount());
+            holder.peopleCount.setText(nearByData.getStats().getUsersCount()+" users have been here.");
         }
-        holder.distance.setText(nearByData.getLocation().getDistance());
+        holder.distance.setText(nearByData.getLocation().getDistance()+"m");
+
+
 
         holder.rootLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +73,7 @@ public class NearByAdapter extends RecyclerView.Adapter<NearByAdapter.ViewHolder
         private TextView location;
         private TextView peopleCount;
         private TextView distance;
+        private ImageView imageView;
         private LinearLayout rootLayout;
         public ViewHolder(View itemView) {
             super(itemView);
@@ -79,6 +83,7 @@ public class NearByAdapter extends RecyclerView.Adapter<NearByAdapter.ViewHolder
             location = (TextView) itemView.findViewById(R.id.location );
             peopleCount = (TextView) itemView.findViewById(R.id.checking);
             distance = (TextView) itemView.findViewById(R.id.distnace);
+            imageView = (ImageView) itemView.findViewById(R.id.imageView);
         }
     }
 }

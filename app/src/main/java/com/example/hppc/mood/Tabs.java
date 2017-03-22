@@ -40,8 +40,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(Fragment_NearBy.getInstance(Fragment_NearBy.ChildFragments.ALL), "All");
-        adapter.addFragment(Fragment_NearBy.getInstance(Fragment_NearBy.ChildFragments.RESTAURENTS), "Restaurents");
+        adapter.addFragment(Fragment_NearBy.getInstance(Fragment_NearBy.ChildFragments.RESTAURENTS), "Restaurants");
         adapter.addFragment(Fragment_NearBy.getInstance(Fragment_NearBy.ChildFragments.SHOPS), "Shops");
         adapter.addFragment(Fragment_NearBy.getInstance(Fragment_NearBy.ChildFragments.ARTS_ENTERTAINMENT),"Arts & Entertainment");
         adapter.addFragment(Fragment_NearBy.getInstance(Fragment_NearBy.ChildFragments.EVENTS), "Events");
