@@ -57,7 +57,7 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:srcCompat="@mipmap/ic_person_pin_black_24dp"
+        app:srcCompat="@android:drawable/ic_menu_myplaces"
         tools:layout_editor_absoluteY="99dp" />
 
     <TextView

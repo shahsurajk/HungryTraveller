@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.VolleyError;
@@ -20,6 +22,7 @@ import com.example.hppc.mood.network.ApiClient;
 import com.example.hppc.mood.network.JacksonRequest;
 import com.example.hppc.mood.network.Mapper;
 import com.example.hppc.mood.network.NearByDataInterface;
+import com.example.hppc.mood.network.Validator;
 import com.example.hppc.mood.network.VolleyManager;
 
 import java.util.ArrayList;
@@ -38,6 +41,7 @@ public class Fragment_NearBy extends Fragment {
     private static final String KEY_CHILD_TYPE = "type";
     private RecyclerView recyclerView;
     private NearByAdapter nearByAdapter;
+    private ProgressBar progressBar;
 
     private NearByDataRoot nearByDataRoot;
     private List<NearByData>nearByDataList=new ArrayList<>();
@@ -54,15 +58,20 @@ public class Fragment_NearBy extends Fragment {
 
         nearByAdapter = new NearByAdapter(getContext(),nearByDataList);
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         recyclerView.setAdapter(nearByAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         int type  = getArguments().getInt(KEY_CHILD_TYPE,1);
-        loadDataBaseOnType(type);
-
+        if (Validator.isOnline(getActivity())) {
+            loadDataBaseOnType(type);
+        }
     }
     public static final String TAG= Fragment_NearBy.class.getCanonicalName().toString();
     private void loadDataBaseOnType(int type){
+        progressBar.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.INVISIBLE);
+        nearByDataList.clear();
 //        todo
 //   if -> lat long-> ll
 //        else -> near=mumbai
@@ -96,13 +105,15 @@ public class Fragment_NearBy extends Fragment {
 
                 nearByDataRoot = (NearByDataRoot) o;
                 nearByDataList.addAll(nearByDataRoot.getResponse().getVenues());
-
+                progressBar.setVisibility(View.GONE);
+                recyclerView.setVisibility(View.VISIBLE);
                 nearByAdapter.notifyDataSetChanged();
             }
         }, new com.android.volley.Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-
+                progressBar.setVisibility(View.GONE);
+                Toast.makeText(getActivity(), "Error Occured!", Toast.LENGTH_SHORT).show();
             }
         });
         VolleyManager.getInstance().addToRequestQueue(jacksonRequest);
