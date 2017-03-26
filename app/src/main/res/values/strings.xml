@@ -4,6 +4,9 @@
         <item>Vasai</item>
         <item>Virar</item>
         <item>Borivli</item>
+        <item>Kalyan</item>
+        <item>Thane</item>
+        <item></item>
     </string-array>
     <string name="one">Hi</string>
 </resources>
