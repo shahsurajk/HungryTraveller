@@ -43,17 +43,23 @@ private ViewPager viewPager;
             finish();
             return true;
         }else if(id == R.id.menu_signout) {
-// todo signout code here
-            FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(Activity_Tabs.this, LoginActivity.class));
-            // open login activty here
-            finish();
-            PreferenceManager.getInstance().clearSession();
+            performLogout();
+            return true;
+        }else if(id == R.id.menu_deleteacc) {
+            // // TODO: delete account code
+
+            performLogout();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
+private void performLogout(){
+    FirebaseAuth.getInstance().signOut();
+    startActivity(new Intent(Activity_Tabs.this, LoginActivity.class));
+    // open login activty here
+    finish();
+    PreferenceManager.getInstance().clearSession();
+}
     @Override
 protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
