@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -27,8 +28,8 @@ public class LocationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_location2);
         b_get = (AppCompatButton) findViewById(R.id.get);
 
-        checkIfLocationExitsAndProceed();
         preferenceManager = PreferenceManager.getInstance();
+        checkIfLocationExitsAndProceed();
         b_get.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,8 +68,9 @@ public class LocationActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
+        if (gps!=null)
+            gps.stopUsingGPS();
         super.onDestroy();
-        gps.stopUsingGPS();
     }
-    }
+}
 

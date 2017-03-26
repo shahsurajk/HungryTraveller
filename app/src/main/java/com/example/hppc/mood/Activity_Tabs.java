@@ -1,5 +1,6 @@
 package com.example.hppc.mood;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -13,7 +14,9 @@ import android.view.MenuItem;
 import android.view.Window;
 
 
+import com.example.hppc.mood.storage.PreferenceManager;
 import com.example.hppc.mood.ui.Fragment_NearBy;
+import com.example.hppc.mood.ui.LocationActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,10 +37,12 @@ private ViewPager viewPager;
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id== R.id.menu_changecity){
-
+            PreferenceManager.getInstance().setLatLong("","");
+            startActivity(new Intent(Activity_Tabs.this, LocationActivity.class));
+            finish();
             return true;
         }else if(id == R.id.menu_signout) {
-
+// todo signout code here
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -51,7 +56,7 @@ protected void onCreate(Bundle savedInstanceState) {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);

@@ -2,6 +2,7 @@ package com.example.hppc.mood.storage;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
 
 /**
  * Created by madscientist on 26/3/17.
@@ -41,13 +42,16 @@ public class PreferenceManager {
         editor.apply();
     }
     public String[]getLatLong (){
-        return new String[]{prefs.getString(KEY_LOCATION_LAT,""),prefs.getString(KEY_LOCATION_LONG,"")};
+        if (!TextUtils.isEmpty(prefs.getString(KEY_LOCATION_LAT,"")))
+            return new String[]{prefs.getString(KEY_LOCATION_LAT,""),prefs.getString(KEY_LOCATION_LONG,"")};
+        else
+            return new String[]{};
     }
     public static PreferenceManager getInstance(){
         if (instance==null){
             throw new IllegalStateException(PreferenceManager.class.getSimpleName() +
                     " is not initialized, call initializeInstance(..) method first.");
         }
-    return instance;
+        return instance;
     }
 }

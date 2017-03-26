@@ -90,7 +90,7 @@ public class Fragment_NearBy extends Fragment {
             longitude = latLong[1];
         }
 
-        String latlongParam = String.format("ll=%s%s",latitude,longitude);
+        String latlongParam = String.format("ll=%s,%s",latitude,longitude);
 
         String latlong1 = "ll=18.9697,72.8072";
         final String url ="https://api.foursquare.com/v2/venues/search?%s&radius=1500&categoryId=%s&client_id=LBG00343EKHRRU4OC3TD45M1PBTYL11DP4OUML1PXX5OP3YK&client_secret=IAIU0OTNIXBAKBUVF2LWZ1NOD5QIK5QBUVGHDBAKYMH1MHJS&v=20170319";
