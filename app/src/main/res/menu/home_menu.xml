@@ -6,6 +6,10 @@
         android:title="Change City"
         app:showAsAction="never" />
     <item
+        android:id="@+id/menu_deleteacc"
+        android:title="Delete Account"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/menu_signout"
         android:title="Sign Out"
         app:showAsAction="never" />
