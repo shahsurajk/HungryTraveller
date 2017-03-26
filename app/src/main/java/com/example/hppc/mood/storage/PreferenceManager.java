@@ -43,11 +43,10 @@ public class PreferenceManager {
     public String[]getLatLong (){
         return new String[]{prefs.getString(KEY_LOCATION_LAT,""),prefs.getString(KEY_LOCATION_LONG,"")};
     }
-    public PreferenceManager getInstance(){
-        if (instance!=null){
+    public static PreferenceManager getInstance(){
+        if (instance==null){
             throw new IllegalStateException(PreferenceManager.class.getSimpleName() +
                     " is not initialized, call initializeInstance(..) method first.");
-
         }
     return instance;
     }

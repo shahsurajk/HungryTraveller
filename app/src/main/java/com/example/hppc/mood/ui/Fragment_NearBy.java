@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +25,7 @@ import com.example.hppc.mood.network.Mapper;
 import com.example.hppc.mood.network.NearByDataInterface;
 import com.example.hppc.mood.network.Validator;
 import com.example.hppc.mood.network.VolleyManager;
+import com.example.hppc.mood.storage.PreferenceManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +44,7 @@ public class Fragment_NearBy extends Fragment {
     private RecyclerView recyclerView;
     private NearByAdapter nearByAdapter;
     private ProgressBar progressBar;
+    private PreferenceManager preferenceManager;
 
     private NearByDataRoot nearByDataRoot;
     private List<NearByData>nearByDataList=new ArrayList<>();
@@ -60,6 +63,7 @@ public class Fragment_NearBy extends Fragment {
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         recyclerView.setAdapter(nearByAdapter);
+        preferenceManager = PreferenceManager.getInstance();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         int type  = getArguments().getInt(KEY_CHILD_TYPE,1);
@@ -75,9 +79,19 @@ public class Fragment_NearBy extends Fragment {
 //        todo
 //   if -> lat long-> ll
 //        else -> near=mumbai
-        String city = "byculla";
+        String city = preferenceManager.getCityName();
         String near = "near="+city+",+IN";
-        String latlong = "ll=19.1107643,72.8456398";
+        String [] latLong = preferenceManager.getLatLong();
+        boolean hasLatLong =false;
+        String latitude = null, longitude = null ;
+        if (latLong.length!=0){
+            hasLatLong = true;
+            latitude = latLong[0];
+            longitude = latLong[1];
+        }
+
+        String latlongParam = String.format("ll=%s%s",latitude,longitude);
+
         String latlong1 = "ll=18.9697,72.8072";
         final String url ="https://api.foursquare.com/v2/venues/search?%s&radius=1500&categoryId=%s&client_id=LBG00343EKHRRU4OC3TD45M1PBTYL11DP4OUML1PXX5OP3YK&client_secret=IAIU0OTNIXBAKBUVF2LWZ1NOD5QIK5QBUVGHDBAKYMH1MHJS&v=20170319";
         Log.i(TAG, "loadDataBaseOnType: "+type);
@@ -99,7 +113,7 @@ public class Fragment_NearBy extends Fragment {
                 categoryID = "4d4b7105d754a06378d81259";
                 break;
         }
-        JacksonRequest jacksonRequest = new JacksonRequest(Request.Method.GET, String.format(url, latlong1,categoryID), null, NearByDataRoot.class, new com.android.volley.Response.Listener() {
+        JacksonRequest jacksonRequest = new JacksonRequest(Request.Method.GET, String.format(url,hasLatLong?latlongParam:near,categoryID), null, NearByDataRoot.class, new com.android.volley.Response.Listener() {
             @Override
             public void onResponse(Object o) {
 
