@@ -42,22 +42,29 @@ public class NearByAdapter extends RecyclerView.Adapter<NearByAdapter.ViewHolder
 
         final NearByData nearByData = nearByDataList.get(position);
         holder.title.setText(nearByData.getName());
-        holder.location.setText(nearByData.getLocation().getAddress() + ", " + nearByData.getLocation().getCrossStreet());
+        holder.location.setText(nearByData.getLocation().getAddress() +
+                (!TextUtils.isEmpty(nearByData.getLocation().getCrossStreet())?nearByData.getLocation().getCrossStreet():""));
         if (nearByData.getStats()!=null && !TextUtils.isEmpty(nearByData.getStats().getUsersCount()))
         {
             holder.peopleCount.setText(nearByData.getStats().getUsersCount()+" users have been here.");
         }
-        holder.distance.setText(nearByData.getLocation().getDistance()+"m");
-
+        if (!TextUtils.isEmpty(nearByData.getLocation().getDistance())) {
+            float distanceInKM = Float.parseFloat(nearByData.getLocation().getDistance()) / 1000;
+            holder.distance.setText(String.format("%2.1f Kms\naway",distanceInKM));
+            holder.distance.setVisibility(View.VISIBLE);
+        }else{
+            holder.distance.setVisibility(View.GONE);
+        }
 
 
         holder.rootLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                double latitude= Double.parseDouble(nearByData.getLocation().getLat());
-                double longitude = Double.parseDouble(nearByData.getLocation().getLng());
-                String uri = String.format(Locale.ENGLISH, "geo:%f,%f", latitude, longitude);
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                Double latitude= Double.parseDouble(nearByData.getLocation().getLat());
+                Double longitude = Double.parseDouble(nearByData.getLocation().getLng());
+                String uri =String.format(Locale.ENGLISH, "geo:%f,%f", latitude, longitude);
+                String uri_other = "geo:<lat>,<long>?q="+String.valueOf(latitude)+","+String.valueOf(longitude)+"("+nearByData.getName()+")";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri_other));
                 context.startActivity(intent);
             }
         });

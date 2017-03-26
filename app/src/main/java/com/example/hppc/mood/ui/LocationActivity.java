@@ -2,6 +2,7 @@ package com.example.hppc.mood.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -10,7 +11,7 @@ import com.example.hppc.mood.Location.TrackGPS;
 import com.example.hppc.mood.R;
 
 public class LocationActivity extends AppCompatActivity {
-    private Button b_get;
+    private AppCompatButton b_get;
     private TrackGPS gps;
     double longitude;
     double latitude;
@@ -19,7 +20,7 @@ public class LocationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location2);
-        b_get = (Button)findViewById(R.id.get);
+        b_get = (AppCompatButton) findViewById(R.id.get);
 
 
 
