@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">HungryTraveller</string>
     <string-array name="location">Location
-        <item>Vasai</item>
-        <item>Virar</item>
-        <item>Borivli</item>
-        <item>Kalyan</item>
-        <item>Thane</item>
-        <item></item>
+        <item>Ahmedabad</item>
+        <item>Bangalore</item>
+        <item>Chennai</item>
+        <item>Delhi</item>
+        <item>Kolkata</item>
+        <item>Mumbai</item>
+        <item>Pune</item>
     </string-array>
-    <string name="one">Hi</string>
 </resources>

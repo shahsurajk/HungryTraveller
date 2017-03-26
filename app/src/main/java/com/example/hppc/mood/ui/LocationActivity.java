@@ -7,7 +7,9 @@ import android.support.v7.widget.AppCompatButton;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.hppc.mood.Activity_Tabs;
@@ -27,6 +29,11 @@ public class LocationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location2);
         b_get = (AppCompatButton) findViewById(R.id.get);
+        Spinner spinner = (Spinner) findViewById(R.id.al2_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.location, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         preferenceManager = PreferenceManager.getInstance();
         checkIfLocationExitsAndProceed();
