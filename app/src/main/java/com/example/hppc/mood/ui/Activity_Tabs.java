@@ -13,8 +13,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
+import com.example.hppc.mood.LoginActivity;
 import com.example.hppc.mood.R;
 import com.example.hppc.mood.storage.PreferenceManager;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +44,8 @@ private ViewPager viewPager;
             return true;
         }else if(id == R.id.menu_signout) {
 // todo signout code here
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(Activity_Tabs.this, LoginActivity.class));
             // open login activty here
             finish();
             PreferenceManager.getInstance().clearSession();

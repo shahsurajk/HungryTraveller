@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "687565678887",
+    "firebase_url": "https://hungrytraveller-157606.firebaseio.com",
+    "project_id": "hungrytraveller-157606",
+    "storage_bucket": "hungrytraveller-157606.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687565678887:android:c35c092d944410c2",
+        "android_client_info": {
+          "package_name": "com.example.hppc.mood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "687565678887-um7tuqi0ur1i99tgo5693oucsr0b96ub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAe-IhQzQr0WSS9QrEf99k2WQMTSR-QcXc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
