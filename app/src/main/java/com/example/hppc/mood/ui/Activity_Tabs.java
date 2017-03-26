@@ -1,4 +1,4 @@
-package com.example.hppc.mood;
+package com.example.hppc.mood.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,12 +11,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
 
 
+import com.example.hppc.mood.R;
 import com.example.hppc.mood.storage.PreferenceManager;
-import com.example.hppc.mood.ui.Fragment_NearBy;
-import com.example.hppc.mood.ui.LocationActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,11 +36,15 @@ private ViewPager viewPager;
         int id = item.getItemId();
         if (id== R.id.menu_changecity){
             PreferenceManager.getInstance().setLatLong("","");
+            PreferenceManager.getInstance().setCityName("");
             startActivity(new Intent(Activity_Tabs.this, LocationActivity.class));
             finish();
             return true;
         }else if(id == R.id.menu_signout) {
 // todo signout code here
+            // open login activty here
+            finish();
+            PreferenceManager.getInstance().clearSession();
             return true;
         }
         return super.onOptionsItemSelected(item);

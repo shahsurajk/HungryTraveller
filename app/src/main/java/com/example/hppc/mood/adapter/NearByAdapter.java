@@ -42,8 +42,15 @@ public class NearByAdapter extends RecyclerView.Adapter<NearByAdapter.ViewHolder
 
         final NearByData nearByData = nearByDataList.get(position);
         holder.title.setText(nearByData.getName());
-        holder.location.setText(nearByData.getLocation().getAddress() +
-                (!TextUtils.isEmpty(nearByData.getLocation().getCrossStreet())?nearByData.getLocation().getCrossStreet():""));
+        if (!TextUtils.isEmpty(nearByData.getLocation().getAddress())){
+            holder.location.setText(nearByData.getLocation().getAddress() +", "+
+                    (!TextUtils.isEmpty(nearByData.getLocation().getCrossStreet())?nearByData.getLocation().getCrossStreet():""));
+
+            holder.location.setVisibility(View.VISIBLE);
+        }else
+        {
+            holder.location.setVisibility(View.GONE);
+        }
         if (nearByData.getStats()!=null && !TextUtils.isEmpty(nearByData.getStats().getUsersCount()))
         {
             holder.peopleCount.setText(nearByData.getStats().getUsersCount()+" users have been here.");

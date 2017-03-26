@@ -12,6 +12,7 @@ public class PreferenceManager {
 
     public static final String PREF_NAME ="com.mood.prefs";
 
+    public static final String KEY_LOGGED_IN = "logged_in";
     public static final String KEY_CITY_SELECTED = "city_selected";
     public static final String KEY_LOCATION_LAT = "location_lat";
     public static final String KEY_LOCATION_LONG = "location_long";
@@ -39,6 +40,19 @@ public class PreferenceManager {
     public void setCityName(String cityName){
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(KEY_CITY_SELECTED,cityName);
+        editor.apply();
+    }
+    public void setUserLoggedIn(){
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(KEY_LOGGED_IN,true);
+        editor.apply();
+    }
+    public boolean getUserLoggedIn(){
+        return prefs.getBoolean(KEY_LOGGED_IN,false);
+    }
+    public void clearSession(){
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.clear();
         editor.apply();
     }
     public String[]getLatLong (){

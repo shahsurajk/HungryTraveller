@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">HungryTraveller</string>
     <string-array name="location">Location
+        <item>------</item>
         <item>Ahmedabad</item>
         <item>Bangalore</item>
         <item>Chennai</item>

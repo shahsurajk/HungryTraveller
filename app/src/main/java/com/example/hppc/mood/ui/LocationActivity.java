@@ -5,16 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.hppc.mood.Activity_Tabs;
 import com.example.hppc.mood.Location.TrackGPS;
 import com.example.hppc.mood.R;
+import com.example.hppc.mood.model.Location;
 import com.example.hppc.mood.storage.PreferenceManager;
 
 public class LocationActivity extends AppCompatActivity {
@@ -35,6 +34,21 @@ public class LocationActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position!=0){
+                    String city = (String) parent.getItemAtPosition(position);
+                    preferenceManager.setCityName(city.toLowerCase());
+                    startActivity(new Intent(LocationActivity.this,Activity_Tabs.class));
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         preferenceManager = PreferenceManager.getInstance();
         checkIfLocationExitsAndProceed();
         b_get.setOnClickListener(new View.OnClickListener() {
@@ -45,7 +59,6 @@ public class LocationActivity extends AppCompatActivity {
 
 
                 if(gps.canGetLocation()){
-
 
                     longitude = gps.getLongitude();
                     latitude = gps .getLatitude();
