@@ -24,5 +24,8 @@
             android:launchMode="singleTop">
            </activity>
         <activity android:name=".ui.Activity_Tabs"/>
+        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".ResetPasswordActivity"></activity>
     </application>
 </manifest>
