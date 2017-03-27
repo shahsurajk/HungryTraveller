@@ -105,6 +105,7 @@ public class LoginActivity extends AppCompatActivity {
                                 } else {
                                     Intent intent1 =
                                             new Intent(LoginActivity.this, LocationActivity.class);
+                                    Toast.makeText(LoginActivity.this, "Signing in", Toast.LENGTH_LONG).show();
                                     startActivity(intent1);
                                     finish();
                                 }

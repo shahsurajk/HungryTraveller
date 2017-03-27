@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#125075</color>
+    <color name="colorPrimaryDark">#0B3A56</color>
+    <color name="colorAccent">#B89613</color>
     <color name="textColorPrimary">#FFFFFF</color>
-    <color name="windowBackground">#FFFFFF</color>
+    <color name="windowBackground">#866C0A</color>
     <color name="navigationBarColor">#000000</color>
+    <color name="blue1">#2A1C80</color>
+    <color name="blue2">#1C125D</color>
+    <color name="blue3">#251970</color>
+    <color name="blue4">#2D1D93</color>
+    <color name="blue5">#321EAC</color>
+    <color name="purple1">#5B127A</color>
+    <color name="purple2">#410A59</color>
+    <color name="purple3">#4F0F6B</color>
+    <color name="purple4">#68118D</color>
+    <color name="purple5">#7810A5</color>
+    <color name="teal3">#104767</color>
+    <color name="teal4">#116A9E</color>
+    <color name="teal5">#115B87</color>
+    <color name="yell3">#F8C70D</color>
+    <color name="yell4">#D4AB10</color>
+    <color name="yell5">#A18311</color>
+
+
 </resources>

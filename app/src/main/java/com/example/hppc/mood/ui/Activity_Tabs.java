@@ -47,7 +47,6 @@ private ViewPager viewPager;
             return true;
         }else if(id == R.id.menu_deleteacc) {
             // // TODO: delete account code
-
             performLogout();
             return true;
         }
