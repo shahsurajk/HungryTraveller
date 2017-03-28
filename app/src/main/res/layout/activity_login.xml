@@ -13,7 +13,14 @@
         android:gravity="center"
         android:orientation="vertical"
         android:padding="@dimen/activity_horizontal_margin"
-        android:background="@color/teal4">
+        android:background="#7092BE">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="30dp"
+            android:src="@drawable/icon" />
 
 
         <android.support.design.widget.TextInputLayout
@@ -63,7 +70,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/teal4"
             android:text="Forgot Password?"
             android:textAllCaps="true"
             android:textColor="@color/navigationBarColor" />
@@ -88,6 +95,5 @@
         android:layout_height="30dp"
         android:layout_gravity="center|bottom"
         android:layout_marginBottom="20dp"
-        android:visibility="gone"
-        android:background="@color/colorAccent"/>
+        android:visibility="gone" />
 </android.support.design.widget.CoordinatorLayout>
