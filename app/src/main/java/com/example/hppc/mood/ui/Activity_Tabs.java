@@ -58,6 +58,7 @@ private ViewPager viewPager;
         }else if(id == R.id.menu_deleteacc) {
             user.delete();
             Toast.makeText(Activity_Tabs.this, "Account Deleted!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Activity_Tabs.this, "Please Login!", Toast.LENGTH_SHORT).show();
             performLogout();
             return true;
         }
