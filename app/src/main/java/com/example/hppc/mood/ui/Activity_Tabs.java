@@ -11,12 +11,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 
 import com.example.hppc.mood.LoginActivity;
 import com.example.hppc.mood.R;
 import com.example.hppc.mood.storage.PreferenceManager;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +30,7 @@ public class Activity_Tabs extends AppCompatActivity{
 private Toolbar toolbar;
 private TabLayout tabLayout;
 private ViewPager viewPager;
+    private ProgressBar progressBar;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -35,6 +40,7 @@ private ViewPager viewPager;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         int id = item.getItemId();
         if (id== R.id.menu_changecity){
             PreferenceManager.getInstance().setLatLong("","");
@@ -46,7 +52,10 @@ private ViewPager viewPager;
             performLogout();
             return true;
         }else if(id == R.id.menu_deleteacc) {
-            // // TODO: delete account code
+            progressBar.setVisibility(View.VISIBLE);
+            user.delete();
+            progressBar.setVisibility(View.GONE);
+            Toast.makeText(Activity_Tabs.this, "Account Deleted.", Toast.LENGTH_SHORT).show();
             performLogout();
             return true;
         }

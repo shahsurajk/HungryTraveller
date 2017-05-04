@@ -67,7 +67,7 @@ public class JacksonRequest<T> extends JsonRequest<T> {
             //Before login to firewall the network error is displayed
             volleyError = new VolleyError("Oops! There seems to be a problem connecting to the network, please try again.");
         } else if( error instanceof ParseError) {
-            volleyError = new VolleyError("There seems to be a technical error, email us for support on hello@getfrapp.com");
+            volleyError = new VolleyError("There seems to be a technical error, email us for support on hello@hungrytraveller.com");
         } else if( error instanceof ServerError) {
             volleyError = new VolleyError("Seems like we are facing an issue, go grab a coffee, we will be back soon.");
         } else if( error instanceof AuthFailureError) {

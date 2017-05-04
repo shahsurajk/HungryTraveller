@@ -8,7 +8,8 @@
     android:layout_marginTop="4dp"
     android:layout_marginBottom="4dp"
     app:contentPadding="8dp"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:background="#c8a18311">
     <LinearLayout     android:layout_width="match_parent"
          android:id="@+id/rootLayout"
         android:paddingLeft="4dp"

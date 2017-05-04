@@ -40,7 +40,8 @@
                 android:text="Select a City below :"
                 android:textAlignment="center"
                 android:textColor="@color/windowBackground"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                tools:ignore="HardcodedText,RtlHardcoded" />
 
             <Spinner
                 android:id="@+id/al2_spinner"
@@ -67,7 +68,8 @@
             android:text="Detect my Location"
             android:textAllCaps="true"
             android:textColor="@color/navigationBarColor"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
 
 
     </LinearLayout>

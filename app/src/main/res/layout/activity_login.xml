@@ -28,7 +28,8 @@
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/navigationBarColor"
-                android:textColorHint="@color/colorAccent" />
+                android:textColorHint="@color/colorAccent"
+                tools:ignore="HardcodedText" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -43,7 +44,8 @@
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:textColor="@color/navigationBarColor"
-                android:textColorHint="@color/colorAccent" />
+                android:textColorHint="@color/colorAccent"
+                tools:ignore="HardcodedText" />
 
         </android.support.design.widget.TextInputLayout>
 
@@ -56,17 +58,19 @@
             android:layout_marginTop="20dip"
             android:background="@color/yell3"
             android:text="Login"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/black"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/btn_reset_password"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
-            android:background="@color/colorPrimaryDark"
+            android:background="@null"
             android:text="Forgot Password?"
             android:textAllCaps="true"
-            android:textColor="@color/navigationBarColor" />
+            android:textColor="@color/navigationBarColor"
+            tools:ignore="HardcodedText" />
 
         <!-- Link to Login Screen -->
 
@@ -76,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
             android:background="@null"
-            android:text="Not a User? Register Here"
+            android:text="Not a User? Click Here to Register."
             android:textAllCaps="false"
             android:textColor="@color/navigationBarColor"
             android:textSize="15dp" />
@@ -88,6 +92,5 @@
         android:layout_height="30dp"
         android:layout_gravity="center|bottom"
         android:layout_marginBottom="20dp"
-        android:visibility="gone"
-        android:background="@color/colorAccent"/>
+        android:visibility="gone" />
 </android.support.design.widget.CoordinatorLayout>
